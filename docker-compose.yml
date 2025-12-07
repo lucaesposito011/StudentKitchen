@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+
+  #Flask webapp
+  web:
+    build: .  #Build the image using the local Dockefile
+    container_name: studentkitchen_web
+    ports:
+      - "5001:5000"
+    volumes:
+      - .:/app       #Useful for development, Sync local project files with the container
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    depends_on:
+      - mongo        #Start MongoDB before starting Flask
+
+  #MongoDB
+  mongo:
+    image: mongo:latest
+    container_name: studentkitchen_db
+    ports:
+      - "27017:27017" #Standard MongoDB port
+    volumes:
+      - mongo-data:/data/db
+
+#Persistent storage for MongoDB
+volumes:
+  mongo-data:
