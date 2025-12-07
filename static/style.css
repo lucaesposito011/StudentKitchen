@@ -1,0 +1,100 @@
+body {
+    background-image: url('background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-family: Arial, sans-serif;
+}
+
+#index{
+    text-align: center;
+    padding-top: 150px;
+}
+
+#testoprincipale{
+    font-size: 50px;
+    text-align: center;
+}
+
+#testosecondario{
+    font-size: 30px;
+    color: #444;
+}
+
+button{
+    width: 100px;
+    height: 60px;
+    font-size: 20px;
+    border-width: thin;
+    background-color: orange;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#loginregisterbox {
+    background-color: #f2f2f2;
+    padding: 30px;
+    border-radius: 20px;
+    border-style: groove;
+    text-align: center;
+    width: 350px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+
+input[type="submit"]{
+    width: 100px;
+    padding: 10px;
+    font-size: 20px;
+    border-width: thin;
+    background-color: orange;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#listaingredientibox{
+    background-color: #f2f2f2;
+    padding: 30px;
+    border-radius: 20px;
+    border-style: groove;
+    text-align: center;
+    width: 650px;
+}
+
+#ricercainversa{
+    font-size: 15px;
+}
+
+#griglia-ingredienti {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    text-align: left;
+    margin-bottom: 20px;
+
+
+}
+
+#bottonci_sessione{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}

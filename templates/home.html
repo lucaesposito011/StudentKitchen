@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StudentKitchen</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+<h1 id="testoprincipale">Ricerca Inversa</h1>
+<h2 id="testosecondario">Seleziona i tuoi ingredienti e prepara il tuo prossimo pasto!</h2>
+
+<div id="listaingredientibox">
+    <form id="ricercainversa">
+        <div id="griglia-ingredienti">
+            <div>
+                <input type="checkbox" id="ingr_pasta" name="ingrediente" value="pasta">
+                <label for="ingr_pasta">Pasta</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_riso" name="ingrediente" value="riso">
+                <label for="ingr_riso">Riso</label>
+            </div>
+            <div>
+                <input id="ingr_pane" name="ingrediente" type="checkbox" value="pane">
+                <label for="ingr_pane">Pane / Pan Carrè</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_farina" name="ingrediente" value="farina">
+                <label for="ingr_farina">Farina</label></br>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_pangrattato" name="ingrediente" value="pangrattato">
+                <label for="ingr_pangrattato">Pangrattato</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_zucchero" name="ingrediente" value="zucchero">
+                <label for="ingr_zucchero">Zucchero</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_caffe" name="ingrediente" value="caffe">
+                <label for="ingr_caffe">Caffè</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_sale" name="ingrediente" value="sale">
+                <label for="ingr_sale">Sale</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_pepe" name="ingrediente" value="pepe">
+                <label for="ingr_pepe">Pepe</label></br>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_olio" name="ingrediente" value="olio">
+                <label for="ingr_olio">Olio d'Oliva</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_pomodoro" name="ingrediente" value="pomodoro">
+                <label for="ingr_pomodoro">Passata / Pelati</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_tonno" name="ingrediente" value="tonno">
+                <label for="ingr_tonno">Tonno in scatola</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_fagioli" name="ingrediente" value="fagioli">
+                <label for="ingr_fagioli">Fagioli</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_piselli" name="ingrediente" value="piselli">
+                <label for="ingr_piselli">Piselli</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_mais" name="ingrediente" value="mais">
+                <label for="ingr_mais">Mais</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_olive" name="ingrediente" value="olive">
+                <label for="ingr_olive">Olive</label></br>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_uova" name="ingrediente" value="uova">
+                <label for="ingr_uova">Uova</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_latte" name="ingrediente" value="latte">
+                <label for="ingr_latte">Latte</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_burro" name="ingrediente" value="burro">
+                <label for="ingr_burro">Burro</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_panna" name="ingrediente" value="panna">
+                <label for="ingr_panna">Panna da cucina</label></br>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_mozzarella" name="ingrediente" value="mozzarella">
+                <label for="ingr_mozzarella">Mozzarella</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_parmigiano" name="ingrediente" value="parmigiano">
+                <label for="ingr_parmigiano">Parmigiano</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_yogurt" name="ingrediente" value="yogurt">
+                <label for="ingr_yogurt">Yogurt</label></br>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_pollo" name="ingrediente" value="pollo">
+                <label for="ingr_pollo">Petto di Pollo</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_carne" name="ingrediente" value="carne_macinata">
+                <label for="ingr_carne">Carne Macinata</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_pancetta" name="ingrediente" value="pancetta">
+                <label for="ingr_pancetta">Pancetta</label></br>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_wurstel" name="ingrediente" value="wurstel">
+                <label for="ingr_wurstel">Wurstel</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_prosciutto" name="ingrediente" value="prosciutto_cotto">
+                <label for="ingr_prosciutto">Prosciutto Cotto</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_cipolla" name="ingrediente" value="cipolla">
+                <label for="ingr_cipolla">Cipolla</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_aglio" name="ingrediente" value="aglio">
+                <label for="ingr_aglio">Aglio</label></br>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_carote" name="ingrediente" value="carote">
+                <label for="ingr_carote">Carote</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_patate" name="ingrediente" value="patate">
+                <label for="ingr_patate">Patate</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_zucchine" name="ingrediente" value="zucchine">
+                <label for="ingr_zucchine">Zucchine</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_melanzane" name="ingrediente" value="melanzane">
+                <label for="ingr_melanzane">Melanzane</label></br>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_pomodorini" name="ingrediente" value="pomodorini">
+                <label for="ingr_pomodorini">Pomodorini</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_limone" name="ingrediente" value="limone">
+                <label for="ingr_limone">Limone</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ingr_erbe" name="ingrediente" value="erbe_aromatiche">
+                <label for="ingr_erbe">Basilico/Prezzemolo</label></br>
+            </div>
+        </div>
+        <input type="submit" value="Ricerca">
+    </form>
+</div>
+
+
+<div id="bottoni_sessione">
+    <a href=""><button>Preferiti</button></a>
+    <a href=""><button>Logout</button></a>
+</div>
+</body>
+</html>
