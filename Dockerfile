@@ -16,4 +16,6 @@ EXPOSE 5000
 
 # Start the Flask application
 # 0.0.0.0 allows access from outside the container
-CMD ["python", "app.py"]
+CMD ["sh", "-c", "python inserimento_ricette.py && python app.py"]
+
+
