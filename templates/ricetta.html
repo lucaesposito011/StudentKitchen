@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dettagli Ricetta</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1 class="testoprincipale">{{ ricettascelta.nome }}</h1>
+
+<div class="ricetta-istruzioni">
+    <img src="{{ ricettascelta.foto }}" class="img-ricettaistruzioni">
+
+    <h2>Ingredienti</h2>
+    <ul>
+        {% for ingr in ricettascelta.listaingredienti %}
+        <li>{{ ingr }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Tempo di preparazione</h2>
+    <p>{{ ricettascelta.tempo_preparazione }} minuti</p>
+
+    <h2>Calorie stimate</h2>
+    <p>{{ ricettascelta.calorie }} kcal</p>
+
+    <h2>Preparazione</h2>
+    <p>{{ ricettascelta.istruzioni }}</p>
+
+    <button onclick="window.location.href='/home'">Indietro</button>
+</div>
+
+</body>
+</html>

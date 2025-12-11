@@ -57,3 +57,65 @@ if (loginForm) {
         }
     });
 }
+
+// ------------------------------------------
+
+async function cercaRicette() {
+    const ingredientiSelezionati = [];
+    document.querySelectorAll("input[name='ingrediente']:checked").forEach(cb => {
+        ingredientiSelezionati.push(cb.value);
+    });
+
+    try {
+        const collegamento = await fetch("/api/ricerca", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                ingredienti: ingredientiSelezionati
+            })
+        });
+
+        if (collegamento.ok === false) {
+            alert("Errore durante la ricerca delle ricette!");
+            return;
+        }
+
+        const ricette = await collegamento.json();
+
+        sessionStorage.setItem("ricetteTrovate", JSON.stringify(ricette));
+
+        window.location.href = "/risultati";
+
+    } catch (error) {
+        console.error("Errore:", error);
+        alert("Errore di connessione al server.");
+    }
+}
+
+//---------------------------------------
+
+function mostraRisultati() {
+    const dati = sessionStorage.getItem("ricetteTrovate");
+    if (!dati) return;
+
+    const ricette = JSON.parse(dati);
+    const container = document.getElementById("lista-ricette");
+
+    ricette.forEach(r => {
+        const selezione_ricetta = document.createElement("div");
+        selezione_ricetta.classList.add("ricetta-box");
+
+        selezione_ricetta.innerHTML = ` <img src="${r.foto}" alt="${r.nome}" class="img-risultati">
+            <h3>${r.nome}</h3>
+            <button onclick="apriRicetta('${r._id}')">Apri ricetta</button>`
+
+        container.appendChild(selezione_ricetta);
+    });
+}
+
+//-------------------------
+
+function apriRicetta(id) {
+    window.location.href = `/ricetta/${id}`;
+}
+

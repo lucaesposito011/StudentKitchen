@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify, session, redirect
 from pymongo import MongoClient
 from werkzeug.security import generate_password_hash, check_password_hash
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
@@ -78,6 +79,33 @@ def pagina_home():
 def logout():
     session.clear()
     return redirect('/login')
+
+@app.route("/api/ricerca", methods=["POST"])
+def ricerca_ricette():
+    dati = request.json
+    ingredienti_scelti = dati.get("ingredienti", [])
+
+    risultati = list(ricette.find({
+        "listaingredienti": {"$in": ingredienti_scelti}}))
+
+    for r in risultati:
+        r["_id"] = str(r["_id"]) #Convertire ObjectId in stringa per evitare errori JSON
+
+    return jsonify(risultati)
+
+@app.route("/risultati")
+def pagina_risultati():
+    return render_template("risultati.html")
+
+@app.route("/ricetta/<id>")
+def pagina_ricetta(id):
+
+    ricetta = ricette.find_one({"_id": ObjectId(id)})
+
+    ricetta["_id"] = str(ricetta["_id"])  #Convertire ObjectId in stringa per evitare errori JSON
+
+    return render_template("ricetta.html", ricettascelta=ricetta)
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

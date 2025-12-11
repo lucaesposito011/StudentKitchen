@@ -7,12 +7,12 @@
 </head>
 
 <body>
-<h1 id="testoprincipale">Ricerca Inversa</h1>
-<h2 id="testosecondario">Seleziona i tuoi ingredienti e prepara il tuo prossimo pasto!</h2>
+<h1 class="testoprincipale">Ricerca Inversa</h1>
+<h2 class="testosecondario">Seleziona i tuoi ingredienti e prepara il tuo prossimo pasto!</h2>
 
-<div id="listaingredientibox">
-    <form id="ricercainversa">
-        <div id="griglia-ingredienti">
+<div class="listaingredientibox">
+    <form class="ricercainversa">
+        <div class="griglia-ingredienti">
             <div>
                 <input type="checkbox" id="ingr_pasta" name="ingrediente" value="pasta">
                 <label for="ingr_pasta">Pasta</label>
@@ -162,14 +162,17 @@
                 <label for="ingr_erbe">Basilico/Prezzemolo</label></br>
             </div>
         </div>
-        <input type="submit" value="Ricerca">
+        <button type="button" onclick="cercaRicette()">Ricerca</button>
     </form>
 </div>
 
 
-<div id="bottoni_sessione">
+<div class="bottoni_sessione">
     <a href=""><button>Preferiti</button></a>
     <a href="/logout"><button>Logout</button></a>
 </div>
+
+<script src="/static/script.js" defer></script>
+
 </body>
 </html>

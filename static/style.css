@@ -13,17 +13,17 @@ body {
     font-family: Arial, sans-serif;
 }
 
-#index{
+.index{
     text-align: center;
     padding-top: 150px;
 }
 
-#testoprincipale{
+.testoprincipale{
     font-size: 50px;
     text-align: center;
 }
 
-#testosecondario{
+.testosecondario{
     font-size: 30px;
     color: #444;
 }
@@ -39,7 +39,7 @@ button{
     margin: 10px;
 }
 
-#loginregisterbox {
+.loginregisterbox {
     background-color: #f2f2f2;
     padding: 30px;
     border-radius: 20px;
@@ -70,7 +70,7 @@ input[type="submit"]{
     margin: 10px;
 }
 
-#listaingredientibox{
+.listaingredientibox{
     background-color: #f2f2f2;
     padding: 30px;
     border-radius: 20px;
@@ -79,22 +79,56 @@ input[type="submit"]{
     width: 650px;
 }
 
-#ricercainversa{
+.ricercainversa{
     font-size: 15px;
 }
 
-#griglia-ingredienti {
+.griglia-ingredienti {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     text-align: left;
     margin-bottom: 20px;
-
-
 }
 
-#bottoni_sessione{
+.bottoni_sessione{
     position: fixed;
     top: 20px;
     right: 20px;
+}
+
+.img-risultati {
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.ricetta-box {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 20px;
+    border-style: groove;
+    text-align: center;
+    width: 250px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.ricetta-istruzioni {
+    background-color: #f2f2f2;
+    padding: 30px;
+    border-radius: 20px;
+    border-style: groove;
+    text-align: left;
+    width: 800px;
+}
+
+.img-ricettaistruzioni {
+    width: 400px;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-left: auto;
 }
