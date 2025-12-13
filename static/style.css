@@ -132,3 +132,7 @@ input[type="submit"]{
     margin-right: auto;
     margin-left: auto;
 }
+
+.centra-bottoni {
+    text-align: center;
+}
