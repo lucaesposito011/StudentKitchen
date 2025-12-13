@@ -119,3 +119,18 @@ function apriRicetta(id) {
     window.location.href = `/ricetta/${id}`;
 }
 
+//-------------------------
+
+async function aggiungiPreferito(id) {
+    const collegamento = await fetch("/api/aggiungipreferiti", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            id: id
+        })
+    });
+
+    const risultato = await collegamento.json();
+    alert(risultato.message);
+}
+

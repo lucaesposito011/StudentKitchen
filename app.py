@@ -95,10 +95,15 @@ def ricerca_ricette():
 
 @app.route("/risultati")
 def pagina_risultati():
+    if "email" not in session:
+        return redirect("/login")
     return render_template("risultati.html")
 
 @app.route("/ricetta/<id>")
 def pagina_ricetta(id):
+
+    if "email" not in session:
+        return redirect("/login")
 
     ricetta = ricette.find_one({"_id": ObjectId(id)})
 
@@ -106,6 +111,21 @@ def pagina_ricetta(id):
 
     return render_template("ricetta.html", ricettascelta=ricetta)
 
+@app.route("/api/aggiungipreferiti", methods=["POST"])
+def aggiungi_preferito():
+
+    dati = request.json
+    ricetta_id = dati.get("id")
+    utente = utenti.find_one({"email": session["email"]})
+
+    if ricetta_id in utente.get("preferiti", []):
+        return jsonify({"ok": False,"message": "Ricetta già presente nei preferiti!"})
+
+    utenti.update_one(
+        {"email": session["email"]},
+        {"$push": {"preferiti": ricetta_id}}
+    )
+    return jsonify({"ok": True, "message": "Ricetta aggiunta ai preferiti!"})
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

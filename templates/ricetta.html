@@ -28,8 +28,14 @@
     <h2>Preparazione</h2>
     <p>{{ ricettascelta.istruzioni }}</p>
 
+    <div class="centra-bottoni">
     <button onclick="window.location.href='/home'">Indietro</button>
+    <button onclick="aggiungiPreferito('{{ ricettascelta._id }}')">❤</button>
+    </div>
+
 </div>
+
+<script src="/static/script.js"></script>
 
 </body>
 </html>
