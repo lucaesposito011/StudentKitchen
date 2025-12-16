@@ -134,3 +134,37 @@ async function aggiungiPreferito(id) {
     alert(risultato.message);
 }
 
+// -----------------------------------
+
+async function caricaPreferiti() {
+    try {
+        const collegamento = await fetch("/api/caricapreferiti", {
+            method: "GET"
+        });
+
+        if (collegamento.ok === false) {
+            alert("Errore nel caricamento dei preferiti! Riprova.");
+            return;
+        }
+
+        const ricette = await collegamento.json();
+        const container = document.getElementById("lista-ricette");
+
+        ricette.forEach(r => {
+            const selezione_ricetta = document.createElement("div");
+            selezione_ricetta.classList.add("ricetta-box");
+
+            selezione_ricetta.innerHTML = `<img src="${r.foto}" alt="${r.nome}" class="img-risultati">
+                <h3>${r.nome}</h3>
+                <button onclick="apriRicetta('${r._id}')">Apri ricetta</button>`;
+
+            container.appendChild(selezione_ricetta);
+        });
+
+    } catch (errore) {
+        console.error("Errore:", errore);
+        alert("Errore di connessione al server");
+    }
+}
+
+

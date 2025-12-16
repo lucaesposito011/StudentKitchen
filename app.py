@@ -127,5 +127,27 @@ def aggiungi_preferito():
     )
     return jsonify({"ok": True, "message": "Ricetta aggiunta ai preferiti!"})
 
+@app.route('/preferiti')
+def pagina_preferiti():
+    if "email" not in session:
+        return redirect("/login")
+    return render_template("preferiti.html")
+
+@app.route("/api/caricapreferiti", methods=["GET"])
+def carica_preferiti():
+
+    utente = utenti.find_one({"email": session["email"]})
+    preferiti_id = utente.get("preferiti", [])
+
+    #Convertire array di stringhe in ObjectId (necessario per la query MongoDB)
+    preferiti_mdb = [ObjectId(pref) for pref in preferiti_id]
+
+    ricette_preferite = list(ricette.find({"_id": {"$in": preferiti_mdb}}))
+
+    for r in ricette_preferite: #Convertire ObjectId in stringa per evitare errori JSON
+        r["_id"] = str(r["_id"])
+
+    return jsonify(ricette_preferite)
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
