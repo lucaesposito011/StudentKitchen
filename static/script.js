@@ -167,4 +167,33 @@ async function caricaPreferiti() {
     }
 }
 
+//---------------------------
 
+async function inviaRecensione(id) {
+
+    const testo = document.getElementById("testo-recensione").value;
+    const voto = document.getElementById("voto").value;
+
+    try {
+        const risposta = await fetch("/api/recensione", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                ricetta_id: id,
+                testo: testo,
+                voto: voto
+            })
+        });
+
+        const risultato = await risposta.json();
+        alert(risultato.message);
+
+        if (risultato.ok === true) {
+            location.reload();
+        }
+
+    } catch (errore) {
+        console.error("Errore:", errore);
+        alert("Errore di connessione al server");
+    }
+}

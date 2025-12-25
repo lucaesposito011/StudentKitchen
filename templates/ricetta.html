@@ -33,6 +33,36 @@
     <button onclick="aggiungiPreferito('{{ ricettascelta._id }}')">❤</button>
     </div>
 
+    <h2>Scrivi una recensione</h2>
+    <form id="form-recensione">
+        <label for="testo-recensione">Recensione:</label><br>
+        <textarea id="testo-recensione" name="testo-recensione" rows="5" cols="50" placeholder="Scrivi qui la tua recensione..."></textarea>
+        <br><br>
+        <label for="voto">Voto:</label><br>
+        <select id="voto" name="voto" required>
+            <option value="">Seleziona un voto da 1 a 5</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br><br>
+        <button type="button" onclick="inviaRecensione('{{ ricettascelta._id }}')">Pubblica</button>
+    </form>
+
+    <h2>Recensioni</h2>
+    {% if ricettascelta.recensioni|length > 0 %}
+    {% for rec in ricettascelta.recensioni %}
+        <p><b>Utente:</b> {{ rec.utente }}</p>
+        <p><b>Voto:</b> {{ rec.voto }}/5</p>
+        <p>{{ rec.testo }}</p>
+        <hr>
+    {% endfor %}
+    {% else %}
+    <p>Nessuna recensione disponibile.</p>
+    {% endif %}
+
 </div>
 
 <script src="/static/script.js"></script>

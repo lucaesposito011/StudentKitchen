@@ -149,5 +149,30 @@ def carica_preferiti():
 
     return jsonify(ricette_preferite)
 
+@app.route("/api/recensione", methods=["POST"])
+def aggiungi_recensione():
+
+    dati = request.get_json()
+    ricetta_id = dati.get("ricetta_id")
+    testo = dati.get("testo")
+    voto = dati.get("voto")
+    email_utente = session.get("email")
+
+    nuova_recensione = {
+        "utente": email_utente,
+        "testo": testo,
+        "voto": int(voto)
+    }
+
+    ricette.update_one(
+        {"_id": ObjectId(ricetta_id)},
+        {"$push": {"recensioni": nuova_recensione}}
+    )
+
+    return jsonify({
+        "ok": True,
+        "message": "Recensione aggiunta con successo!"
+    })
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
