@@ -14,7 +14,7 @@ StudentKitchen provides several features designed to help students manage meal p
 
 **Recipe Details**: Each recipe includes detailed information such as ingredients, preparation steps, estimated preparation time, calorie count, and an image.
 
-**Favorites Management**: Users can save recipes to their personal favorites list.  A dedicated page allows users to easily access all their saved recipes.
+**Favorites Management**: Users can save and remove recipes to their personal favorites list. A dedicated page allows users to easily access all their saved recipes.
 
 **Recipe Reviews**: Users can leave reviews and ratings for each recipe.
 All reviews are displayed on the recipe detail page, allowing users to share feedback and opinions.
@@ -30,7 +30,7 @@ All reviews are displayed on the recipe detail page, allowing users to share fee
 
 To run StudentKitchen, you must have installed in your pc **Docker Desktop**
 
-**Step 1**: Clone the project repository
+**Step 1**: Download the project repository
 
 **Step 2**: Navigate to the project directory
 ```bash
