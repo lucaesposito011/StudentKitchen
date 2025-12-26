@@ -156,7 +156,8 @@ async function caricaPreferiti() {
 
             selezione_ricetta.innerHTML = `<img src="${r.foto}" alt="${r.nome}" class="img-risultati">
                 <h3>${r.nome}</h3>
-                <button onclick="apriRicetta('${r._id}')">Apri ricetta</button>`;
+                <button onclick="apriRicetta('${r._id}')">Apri</button>
+                <button onclick="rimuoviPreferito('${r._id}')">Rimuovi</button>`;
 
             container.appendChild(selezione_ricetta);
         });
@@ -195,5 +196,24 @@ async function inviaRecensione(id) {
     } catch (errore) {
         console.error("Errore:", errore);
         alert("Errore di connessione al server");
+    }
+}
+
+//-----------------------------
+
+async function rimuoviPreferito(id) {
+    const collegamento = await fetch("/api/rimuovipreferiti", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            id: id
+        })
+    });
+
+    const risultato = await collegamento.json();
+    alert(risultato.message);
+
+    if (risultato.ok === true) {
+        location.reload();
     }
 }

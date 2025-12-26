@@ -174,5 +174,21 @@ def aggiungi_recensione():
         "message": "Recensione aggiunta con successo!"
     })
 
+@app.route("/api/rimuovipreferiti", methods=["POST"])
+def rimuovi_preferito():
+
+    dati = request.json
+    ricetta_id = dati.get("id")
+    utente = utenti.find_one({"email": session["email"]})
+
+    if ricetta_id not in utente.get("preferiti", []):
+        return jsonify({"ok": False,"message": "Ricetta già rimossa!"})
+
+    utenti.update_one(
+        {"email": session["email"]},
+        {"$pull": {"preferiti": ricetta_id}}
+    )
+    return jsonify({"ok": True, "message": "Ricetta rimossa dai preferiti!"})
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
